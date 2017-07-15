@@ -1,0 +1,43 @@
+/*. You have a row of 2n disks of two colours, n dark and n light. They alternate: dark,
+light, dark, light, and so on. You want to get all the dark disks to the right-hand end,
+and all the light disks to the left-hand end. The only moves you are allowed to make
+are those that interchange the positions of two neighbouring disks. Design an algorithm
+that runs in O(n) for solving this puzzle and determine the number of moves it takes.
+
+You are given an array of 0s and 1s in random order. Segregate 0s on left side and 1s
+on right side of the array. Traverse array only once.
+Input array = [0, 1, 0, 1, 0, 0, 1, 1, 1, 0] Output array = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+Time Complexity: O(n)*/
+
+#include <stdio.h>
+int main() {
+	int size,i,j,temp;
+	scanf("%d",&size);
+	int array[size];
+	for(i=0;i<size;i++)
+	{
+		scanf("%d",&array[i]);
+	}
+	for(i=0,j=size-1;i<=size/2,j>=size/2;)
+	{
+		if(array[i]==0)
+		{
+			i++;
+		}
+		if(array[j]==1)
+		{
+			j--;
+		}
+		else
+		{
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+	}
+    	for(i=0;i<size;i++)
+	    {
+		printf("%d ",array[i]);
+    	}
+	return 0;
+}
